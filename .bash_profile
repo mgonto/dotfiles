@@ -9,16 +9,11 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done
 unset file
 
-# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
-[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
 . ~/dev/pvm/pvm.sh
-
-#Completion to PVM
-[[ -r $PVM_DIR/bash_completion ]] && . $PVM_DIR/bash_completion
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
