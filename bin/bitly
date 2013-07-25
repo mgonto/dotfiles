@@ -1,0 +1,15 @@
+#!/bin/bash
+progname=$(basename $0)
+if [ -z "$1" ]
+then
+        echo -e "Usage:   $progname url"
+        exit
+fi
+URL=$1
+
+BITLYURL='http://api.bit.ly/v3/shorten?login=gonto89&apiKey=R_6dbcb21acbf94da0c596c618713d9bfd&format=json'
+ENCODEDURL=$(python -c "import urllib; print urllib.quote('''$URL''')")
+RESPONSE=$(/usr/bin/env curl -s -A Mozilla $BITLYURL'&longUrl='$ENCODEDURL)
+TEXT=$(echo $RESPONSE | sed -e 's/[{}]/''/g' | awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' | sed -n 4p | cut -c 9- | sed 's/"//g' | sed 's/\\//g')
+echo $TEXT
+echo $TEXT | pbcopy

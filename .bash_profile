@@ -37,3 +37,13 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
+
+. ~/dev/pvm/pvm.sh
+
+#Completion to PVM
+[[ -r $PVM_DIR/bash_completion ]] && . $PVM_DIR/bash_completion
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+[[ -s /Users/gonto/.nvm/nvm.sh ]] && . /Users/gonto/.nvm/nvm.sh # This loads NVM
+
