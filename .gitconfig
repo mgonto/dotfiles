@@ -2,20 +2,21 @@
          name = Martin Gontovnikas
          email = martin@gonto.com.ar
 [alias]
+
 	df = diff --color --color-words --abbrev
 	st = status
-        ci = commit
-        br = branch
-        co = checkout
-        cob = checkout -b
-        upi = pull origin integration
-        pp = push origin HEAD
-        upup = pull --rebase upstream master
-        p = push
-        s = status
-        d = diff
-        up = pull --rebase origin master
-        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    ci = commit
+    br = branch
+    co = checkout
+    cob = checkout -b
+    upi = pull origin integration
+    pp = push origin HEAD
+    upup = pull --rebase upstream master
+    p = push
+    s = status
+    d = diff
+    up = pull --rebase origin master
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [color]
 	ui = always
 [apply]
