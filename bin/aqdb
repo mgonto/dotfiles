@@ -1,0 +1,18 @@
+#!/bin/bash
+
+DB="aq-dev"
+if [ -z "$1" ]; then
+  DB="aq-dev"
+else 
+  DB="$1"
+fi
+
+heroku pgbackups:capture --expire --app "$DB"
+URL=`heroku pgbackups:url --app "$DB"`
+
+curl "$URL" --create-dirs -o ~/Downloads/newDump.dump
+
+prkill play
+dropdb aquicore
+createdb aquicore
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -U aquicore -d aquicore ~/Downloads/newDump.dump
