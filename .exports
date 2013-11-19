@@ -27,3 +27,4 @@ export _JAVA_OPTIONS="-XX:MaxPermSize=512m -Xmx768m"
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+export SBT_OPTS=-XX:MaxPermSize=300m
