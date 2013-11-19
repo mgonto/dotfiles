@@ -7,6 +7,7 @@ else
   DB="$1"
 fi
 
+echo "Downloading from $1"
 heroku pgbackups:capture --expire --app "$DB"
 URL=`heroku pgbackups:url --app "$DB"`
 
